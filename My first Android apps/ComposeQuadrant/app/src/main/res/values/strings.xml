@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ComposeQuadrant</string>
+
+    <string name="first_title">Text composable</string>
+    <string name="first_description">Отображает текст и следует рекомендациям по оформлению материалов.</string>
+    <string name="second_title">Image composable</string>
+    <string name="second_description">Создает составной объект, который размещает и рисует данный объект класса Painter.</string>
+    <string name="third_title">Row composable</string>
+    <string name="third_description">Компоновочный макет, который размещает свои дочерние элементы в горизонтальной последовательности.</string>
+    <string name="fourth_title">Column composable</string>
+    <string name="fourth_description">Компоновочный макет, который размещает свои дочерние элементы в вертикальной последовательности.</string>
+</resources>
