@@ -1,16 +1,20 @@
 package com.example.mybusinesscardapp
 
 import android.os.Bundle
+import android.text.style.BackgroundColorSpan
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.SnackbarDefaults.backgroundColor
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -42,7 +46,8 @@ fun ComposeMyBusinessCard() {
     MyBusinessCard(
         fullName = stringResource(R.string.my_name),
         currentStatus = stringResource(R.string.my_status),
-        avatar = painterResource(R.drawable.my_qrcode_developers_google_com)
+        avatar = painterResource(R.drawable.android_logo),
+        backgroundColor = Color.Black,
     )
 }
 
@@ -51,11 +56,13 @@ private fun MyBusinessCard(
     fullName: String,
     currentStatus: String,
     avatar: Painter,
+    backgroundColor: Color,
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight(),
+            .fillMaxHeight()
+            .background(backgroundColor),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -65,13 +72,15 @@ private fun MyBusinessCard(
         )
         Text(
             text = fullName,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(start = 24.dp, end = 8.dp)
+            fontSize = 40.sp,
+            color = Color.White,
+//            modifier = Modifier
         )
         Text(
             text = currentStatus,
-            fontSize = 16.sp,
-            modifier = Modifier.padding(16.dp)
+            fontSize = 25.sp,
+            color = Color(0xFF3ddc84),
+//            modifier = Modifier
         )
     }
 }
