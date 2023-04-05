@@ -3,4 +3,7 @@
 
     <string name="my_name">Илья Насалевич</string>
     <string name="my_status">Король Королевич</string>
+    <string name="my_telephone">+7 922 252 0692</string>
+    <string name="my_telegram">\@il_nasa</string>
+    <string name="my_mail">il.nasa@ya.ru</string>
 </resources>
