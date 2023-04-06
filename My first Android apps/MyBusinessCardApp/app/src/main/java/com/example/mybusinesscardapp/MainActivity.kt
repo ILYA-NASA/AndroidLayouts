@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mybusinesscardapp.ui.theme.MyBusinessCardAppTheme
 
@@ -39,72 +40,79 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ComposeMyBusinessCard() {
-    MyBusinessCard(
-        fullName = stringResource(R.string.my_name),
-        currentStatus = stringResource(R.string.my_status),
-        telephone = stringResource(R.string.my_telephone),
-        telegram = stringResource(R.string.my_telegram),
-        mail = stringResource(R.string.my_mail),
-        avatar = painterResource(R.drawable.android_logo),
-        googleProfile = painterResource(R.drawable.my_qrcode_developers_google_com),
-        backgroundColor = Color.Black,
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.Black),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        MyMainInfo(
+            fullName = stringResource(R.string.my_name),
+            currentStatus = stringResource(R.string.my_status),
+            avatar = painterResource(R.drawable.android_logo),
+        )
+        MyContactInfo(
+            telephone = stringResource(R.string.my_telephone),
+            telegram = stringResource(R.string.my_telegram),
+            mail = stringResource(R.string.my_mail),
+            googleProfile = painterResource(R.drawable.my_qrcode_developers_google_com),
+        )
+    }
+}
+
+@Composable
+private fun MyMainInfo(
+    fullName: String,
+    currentStatus: String,
+    avatar: Painter,
+) {
+    Image(
+        painter = avatar,
+        contentDescription = null,
+        modifier = Modifier.height(200.dp).width(200.dp).padding(bottom = 10.dp)
+    )
+    Text(
+        text = fullName,
+        fontSize = 40.sp,
+        color = Color.White,
+    )
+    Text(
+        text = currentStatus,
+        fontSize = 25.sp,
+        color = Color(0xFF3ddc84),
     )
 }
 
 @Composable
-private fun MyBusinessCard(
-    fullName: String,
-    currentStatus: String,
+private fun MyContactInfo(
     telephone: String,
     telegram: String,
     mail: String,
-    avatar: Painter,
     googleProfile: Painter,
-    backgroundColor: Color,
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
-            .background(backgroundColor),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Image(
-            painter = avatar,
-            contentDescription = null,
-        )
-        Text(
-            text = fullName,
-            fontSize = 40.sp,
-            color = Color.White,
-//            modifier = Modifier
-        )
-        Text(
-            text = currentStatus,
-            fontSize = 25.sp,
-            color = Color(0xFF3ddc84),
-//            modifier = Modifier
-        )
-        Text(
-            text = telephone,
-            fontSize = 17.sp,
-            color = Color.Gray
-        )
-        Text(
-            text = telegram,
-            fontSize = 17.sp,
-            color = Color.Gray
-        )
-        Text(
-            text = mail,
-            fontSize = 17.sp,
-            color = Color.Gray
-        )
-        Image(
-            painter = googleProfile,
-            contentDescription = null)
+    Column(modifier = Modifier) {
+
     }
+    Text(
+        text = telephone,
+        fontSize = 17.sp,
+        color = Color.Gray
+    )
+    Text(
+        text = telegram,
+        fontSize = 17.sp,
+        color = Color.Gray
+    )
+    Text(
+        text = mail,
+        fontSize = 17.sp,
+        color = Color.Gray
+    )
+    Image(
+        painter = googleProfile,
+        contentDescription = null
+    )
 }
 
 @Preview(showBackground = true)
