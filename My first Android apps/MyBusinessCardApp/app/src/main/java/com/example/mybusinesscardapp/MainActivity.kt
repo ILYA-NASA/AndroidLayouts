@@ -70,7 +70,10 @@ private fun MyMainInfo(
     Image(
         painter = avatar,
         contentDescription = null,
-        modifier = Modifier.height(200.dp).width(200.dp).padding(bottom = 10.dp)
+        modifier = Modifier
+            .height(200.dp)
+            .width(200.dp)
+            .padding(bottom = 10.dp)
     )
     Text(
         text = fullName,
@@ -91,9 +94,14 @@ private fun MyContactInfo(
     mail: String,
     googleProfile: Painter,
 ) {
-    Column(modifier = Modifier) {
-
-    }
+    Image(
+        painter = googleProfile,
+        contentDescription = null,
+        modifier = Modifier
+            .height(200.dp)
+            .width(200.dp)
+            .padding(bottom = 10.dp)
+    )
     Text(
         text = telephone,
         fontSize = 17.sp,
@@ -108,10 +116,6 @@ private fun MyContactInfo(
         text = mail,
         fontSize = 17.sp,
         color = Color.Gray
-    )
-    Image(
-        painter = googleProfile,
-        contentDescription = null
     )
 }
 
