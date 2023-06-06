@@ -108,12 +108,12 @@ private fun MyContactInfo(
         color = Color.Gray
     )
     Text(
-        text = telegram,
+        text = mail,
         fontSize = 17.sp,
         color = Color.Gray
     )
     Text(
-        text = mail,
+        text = telegram,
         fontSize = 17.sp,
         color = Color.Gray
     )
